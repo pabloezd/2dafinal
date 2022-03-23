@@ -1,12 +1,4 @@
-/*let saludarUsuario = prompt("Por favor ingrese su nombre");
-let emailUsuario = prompt("Por favor ingrese su correo electrónico");
-alert("Bienvenido/a a nuestra Ferretería, " + saludarUsuario);
 
-function registroUsuario(nombre, email) {
-    console.log("Ingresó: " + nombre + " " + ", y su email es: " + email);
-}
-registroUsuario(saludarUsuario, emailUsuario);
-*/
 
 function Producto(nombre, stock, precio){
     this.nombre = nombre;
@@ -43,77 +35,7 @@ function stockSuficiente(cantidad, precio){
 function stockQueda(producto, stock){
     console.log("Stock Restante " + producto + ": " + stock);
 }
-/*
-let cantidadProductosDistintos = parseInt(prompt("Por favor, ingrese la cantidad de productos distintos a adquirir"));
 
-//Ciclo 
-for (let i = 0; i < cantidadProductosDistintos; i++){
-    
-    let productoElegido = prompt("Por favor, ingrese el producto que está buscando");
-    let cantidadCompra = parseInt(prompt("Por favor, también ingrese la cantidad de compra"));
-    
-    
-    if ((productoElegido === listaProd[0].nombre) && (cantidadCompra <= listaProd[0].stock)){
-        stockSuficiente(cantidadCompra, listaProd[0].precio); 
-        let stockRestante1 = listaProd[0].stock - cantidadCompra;
-        stockQueda(listaProd[0].nombre, stockRestante1);
-    }
-    
-    else if ((productoElegido === listaProd[1].nombre) && (cantidadCompra <= listaProd[1].stock)){
-        stockSuficiente(cantidadCompra, listaProd[1].precio); 
-        let stockRestante2 = listaProd[1].stock - cantidadCompra;
-        stockQueda(listaProd[1].nombre, stockRestante2);
-    }
-    
-    else if ((productoElegido === listaProd[2].nombre) && (cantidadCompra <= listaProd[2].stock)){
-        stockSuficiente(cantidadCompra, listaProd[2].precio); 
-        let stockRestante3 = listaProd[2].stock - cantidadCompra;
-        stockQueda(listaProd[2].nombre, stockRestante3);
-    }
-
-    else{
-        alert("No contamos con ese producto o no tenemos stock disponible. Por favor elija entre Taladro, Sierra o Amoladora");
-    }
-}
-
-//Metodo para verificar por alert si tenemos determinado producto en nuestro array
-let chequearProducto = prompt("Verifique si tenemos el producto");
-alert(allProducts.includes(chequearProducto));
-
-//Encontrar si tenemos el accesorio con find
-const busqueda = accesorios.find((el) => el.nombre === "Disco de corte");
-console.log(busqueda);
-
-//Encontrar si tenemos el accesorio con filter
-const filtrar = accesorios.filter((el) => el.precio <= 200);
-console.log(filtrar);
-
-
-//DOM
-let h1 = document.getElementById("nombreFerreteria");
-console.log(h1.innerHTML);
-
-let marca = document.getElementsByClassName("marca");
-console.log(marca[0].innerHTML);
-console.log(marca[1].innerHTML);
-console.log(marca[2].innerHTML);
-
-let subtitulo = document.getElementById("subtitulo");
-console.log(subtitulo.innerText);
-subtitulo.innerText = subtitulo.innerText + " - Que estabas buscando hoy, " + saludarUsuario + "?";
-
-let spareparts = document.getElementById("spareparts");
-spareparts.innerText = "REPUESTOS CON STOCK";
-
-for (const repuesto of repuestos) {
-let contenedor = document.createElement("div");
-contenedor.innerHTML = `<p> Nro ID: ${repuesto.id}</p>
-                            <p> Nombre Repuesto: ${repuesto.nombre}</p>
-                            <p> Costo: $ ${repuesto.precio}</p>
-                            <br>`;
-document.body.appendChild(contenedor);
-}
-*/
 
 //EVENTOS
 let boton = 
@@ -123,13 +45,14 @@ function respuestaClick(){
     console.log("Ha obtenido un 15% de descuento en su compra ");
 }
 
-
+/*
 let subs = document.getElementsByClassName("form-control")[0];
 subs.addEventListener("keyup", function(event) {
     if (event.key === "Enter") {
         console.log("Se ha suscrito a nuestro Newsletter con éxito ")
     }
 });
+*/
 
 let nuevoIngreso = 
 document.getElementById("d1");
@@ -215,4 +138,24 @@ proy.addEventListener("keyup", function(event) {
 
 const enJSON  = JSON.stringify(accesorios);
 console.log(enJSON);
+
+//OPERADORES AVANZADOS
+//Operador Ternario
+
+let edadRequerida = 
+document.getElementById("d7");
+edadRequerida.addEventListener("keyup", function(event) {
+    if (event.key === "Enter") {
+        console.log(document.getElementById("d7").value)
+        let edadControl = document.getElementById("edad");
+        console.log(edadControl.innerText);
+        edadControl.innerText = edadRequerida.value >= 18 ? "Puede realizar sus proyectos con nuestras herramientas!" : "Por favor realice sus proyectos bajo la supervision de un adulto";
+    }
+});
+
+//Operador AND
+let subs = document.getElementsByClassName("form-control")[0];
+subs.addEventListener("keyup", function(event) {
+    event.key === "Enter" && alert("Se ha suscrito a nuestro Newsletter con éxito ")
+});
 
